@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  gateway:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - JWT_SECRET=${JWT_SECRET:-your-secret-key-change-in-production}
+      - CHATTERBOX_ENDPOINT=http://chatterbox:8000
+      - KOKKORO_ENDPOINT=http://kokkoro:8000
+      - COQUI_ENDPOINT=http://coqui:8000
+    depends_on:
+      - chatterbox
+      - kokkoro
+      - coqui
+    networks:
+      - tts-network
+    restart: unless-stopped
+
+  chatterbox:
+    build:
+      context: ./models/chatterbox
+      dockerfile: Dockerfile
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=0
+    networks:
+      - tts-network
+    restart: unless-stopped
+    shm_size: '2gb'
+
+  kokkoro:
+    build:
+      context: ./models/kokkoro
+      dockerfile: Dockerfile
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=0
+    networks:
+      - tts-network
+    restart: unless-stopped
+    shm_size: '2gb'
+
+  coqui:
+    build:
+      context: ./models/coqui
+      dockerfile: Dockerfile
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=0
+    networks:
+      - tts-network
+    restart: unless-stopped
+    shm_size: '2gb'
+
+networks:
+  tts-network:
+    driver: bridge
