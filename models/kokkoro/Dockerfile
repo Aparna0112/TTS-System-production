@@ -21,9 +21,7 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 COPY kokkoro_server.py .
 COPY handler.py .
 
-# Pre-download model
-RUN python3 -c "from transformers import AutoModel; \
-    AutoModel.from_pretrained('hexgrad/Kokoro-82M', trust_remote_code=True)" || true
+
 
 EXPOSE 8000
 
