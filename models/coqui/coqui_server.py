@@ -1,4 +1,3 @@
-```python
 """
 Coqui XTTS Model Endpoint
 Serves coqui/XTTS-v1 model via FastAPI
