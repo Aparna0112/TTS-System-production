@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.Python
+venv/
+.env
+.env.local
+.vscode/
+.idea/
+*.log
+*.mp3
+*.wav
+models/*/cache/
+*.pt
+*.bin
