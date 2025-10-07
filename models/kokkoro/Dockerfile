@@ -23,4 +23,4 @@ EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=10s --start-period=120s --retries=3 \
     CMD python3 -c "import requests; requests.get('http://localhost:8000/health')"
 
-CMD ["python3", "-m", "uvicorn", "kokkoro_server:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python3", "handler.py"]
