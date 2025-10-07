@@ -1,8 +1,4 @@
-```python
-"""
-Chatterbox TTS Model Endpoint
-Serves ResembleAI/chatterbox model via FastAPI
-"""
+
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
