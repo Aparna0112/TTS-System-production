@@ -20,10 +20,7 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 COPY chatterbox_server.py .
 COPY handler.py .
 
-# Pre-download model (optional)
-RUN python3 -c "from transformers import AutoTokenizer, AutoModelForCausalLM; \
-    AutoTokenizer.from_pretrained('ResembleAI/chatterbox'); \
-    AutoModelForCausalLM.from_pretrained('ResembleAI/chatterbox')" || true
+
 
 EXPOSE 8000
 
