@@ -22,9 +22,7 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 COPY coqui_server.py .
 COPY handler.py .
 
-# Pre-download model
-RUN python3 -c "from TTS.api import TTS; \
-    TTS(model_name='tts_models/multilingual/multi-dataset/xtts_v1', progress_bar=False)" || true
+
 
 EXPOSE 8000
 
