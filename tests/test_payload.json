@@ -1,0 +1,31 @@
+{
+  "examples": [
+    {
+      "name": "Coqui Example",
+      "payload": {
+        "model": "coqui",
+        "voice": "Claribel Dervla",
+        "text": "Hello, world!",
+        "jwt_token": "your-token-here"
+      }
+    },
+    {
+      "name": "Kokkoro Example",
+      "payload": {
+        "model": "kokkoro",
+        "voice": "af_bella",
+        "text": "Welcome to the system.",
+        "jwt_token": "your-token-here"
+      }
+    },
+    {
+      "name": "Chatterbox Example",
+      "payload": {
+        "model": "chatterbox",
+        "voice": "default",
+        "text": "Testing the TTS system.",
+        "jwt_token": "your-token-here"
+      }
+    }
+  ]
+}
