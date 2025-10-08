@@ -6,4 +6,8 @@ pydub==0.25.1
 soundfile==0.12.1
 runpod==1.5.0
 kokoro-onnx==0.1.0
+<<<<<<< HEAD
 onnxruntime==1.16.3
+=======
+onnxruntime-gpu==1.16.3
+>>>>>>> bfb632049c2b3072aacded3e7bdbac32b686bf66
